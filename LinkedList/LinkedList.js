@@ -87,4 +87,19 @@ export default class LinkedList {
         }
     }
 
+    reverseTraverse() {
+        if (this.tail === null)
+            return;
+        let currentNode = this.tail;
+        while (currentNode !== this.head) {
+            let prevNode = this.head;
+            while (prevNode.next !== currentNode) {
+                prevNode = prevNode.next;
+            }
+            console.log(currentNode.value);
+            currentNode = prevNode;
+        }
+        console.log(currentNode.value);
+    }
+
 }
