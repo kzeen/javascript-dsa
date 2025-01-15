@@ -30,8 +30,8 @@ export default class LinkedList {
         }
     }
 
-    contains(head, val) {
-        let currentNode = head;
+    contains(val) {
+        let currentNode = this.head;
 
         while (currentNode !== null && currentNode.value !== val)
             currentNode = currentNode.next;
