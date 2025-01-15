@@ -78,4 +78,13 @@ export default class LinkedList {
             }
         }
     }
+
+    traverse() {
+        let currentNode = this.head;
+        while (currentNode !== null) {
+            console.log(currentNode.value);
+            currentNode = currentNode.next;
+        }
+    }
+
 }
