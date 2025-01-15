@@ -40,4 +40,42 @@ export default class LinkedList {
             return false;
         return true;
     }
+
+
+    delete(val) {
+        if (this.head === null)
+            return false;
+        else {
+            let currentNode = this.head;
+
+            // First element to delete
+            if (currentNode.value === val) {
+                if (this.head === this.tail) {
+                    this.head = null;
+                    this.tail = null;
+                } else {
+                    this.head = currentNode.next;
+                    currentNode.next = null;
+                }
+                return true;
+            }
+
+            // Middle or last element to delete
+            while (currentNode.next !== null && currentNode.next.value !== val) {
+                currentNode = currentNode.next
+            }
+
+            if (currentNode.next.value === val) {
+                if (currentNode.next === this.tail) {
+                    currentNode.next = null;
+                    this.tail = currentNode;
+                } else {
+                    currentNode.next = currentNode.next.next;
+                }
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
 }
