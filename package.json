@@ -1,0 +1,22 @@
+{
+  "name": "javascript-dsa",
+  "version": "1.0.0",
+  "description": "Data Structures and Algorithms in JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kzeen/javascript-dsa.git"
+  },
+  "author": "kzeen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kzeen/javascript-dsa/issues"
+  },
+  "homepage": "https://github.com/kzeen/javascript-dsa#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
