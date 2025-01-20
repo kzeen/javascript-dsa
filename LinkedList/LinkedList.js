@@ -65,7 +65,10 @@ class LinkedList {
                 currentNode = currentNode.next
             }
 
-            if (currentNode.next.value === val) {
+
+            if (currentNode.next === null) {
+                return false;
+            } else {
                 if (currentNode.next === this.tail) {
                     currentNode.next = null;
                     this.tail = currentNode;
@@ -73,8 +76,6 @@ class LinkedList {
                     currentNode.next = currentNode.next.next;
                 }
                 return true;
-            } else {
-                return false;
             }
         }
     }
