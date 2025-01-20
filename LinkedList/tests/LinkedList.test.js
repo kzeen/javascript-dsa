@@ -59,6 +59,7 @@ function testTraverse() {
 
 function testReverseTraverse() {
     const test = new LinkedList();
+    console.log(test.toArray().toString() === '');
 
     test.append(1);
     test.append(2);
@@ -66,6 +67,7 @@ function testReverseTraverse() {
     test.append(4);
 
     test.reverseTraverse();
+    console.log(test.toArray().toString());
 }
 
 // testAppend();

@@ -101,6 +101,22 @@ class LinkedList {
         }
         console.log(currentNode.value);
     }
+    
+    toArray() {
+        const LinkedListArr = [];
+        let currentNode = this.head;
+
+        while (currentNode !== null) {
+            LinkedListArr.push(currentNode.value);
+            currentNode = currentNode.next;
+        }
+
+        return LinkedListArr;
+    }
+
+    toString() {
+        return this.toArray().toString();
+    }
 
 }
 
