@@ -81,26 +81,34 @@ class LinkedList {
     }
 
     traverse() {
+        const arr = [];
         let currentNode = this.head;
+        
         while (currentNode !== null) {
-            console.log(currentNode.value);
+            arr.push(currentNode.value);
             currentNode = currentNode.next;
         }
+
+        return arr.toString();
     }
 
     reverseTraverse() {
+        const arr = [];
+
         if (this.tail === null)
-            return;
+            return arr.toString();
         let currentNode = this.tail;
         while (currentNode !== this.head) {
             let prevNode = this.head;
             while (prevNode.next !== currentNode) {
                 prevNode = prevNode.next;
             }
-            console.log(currentNode.value);
+            arr.push(currentNode.value);
             currentNode = prevNode;
         }
-        console.log(currentNode.value);
+        arr.push(currentNode.value);
+
+        return arr.toString();
     }
     
     toArray() {
