@@ -83,6 +83,19 @@ class DoublyLinkedList {
         return true;
     }
 
+    reverseTraverse() {
+        const arr = [];
+
+        let currentNode = this.tail;
+
+        while (currentNode !== null) {
+            arr.push(currentNode.value);
+            currentNode = currentNode.prev;
+        }
+
+        return arr.toString();
+    }
+
     toArray() {
         const arr = [];
         let currentNode = this.head;

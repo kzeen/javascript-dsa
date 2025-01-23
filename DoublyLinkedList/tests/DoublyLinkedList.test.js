@@ -95,4 +95,28 @@ describe("DoublyLinkedList tests", () => {
         expect(doublylinkedlist.delete(2)).toBeTruthy();
         expect(doublylinkedlist.head).toBeNull();
     })
+
+    it("should traverse the DoublyLinkedList in reverse order", () => {
+        const doublylinkedlist = new DoublyLinkedList();
+
+        expect(doublylinkedlist.reverseTraverse()).toBe('');
+
+        doublylinkedlist.append(1);
+        expect(doublylinkedlist.reverseTraverse()).toBe('1');
+
+        doublylinkedlist.append(2);
+        doublylinkedlist.append(3);
+        expect(doublylinkedlist.reverseTraverse()).toBe('3,2,1');
+
+        doublylinkedlist.prepend(4);
+        doublylinkedlist.prepend(5);
+        doublylinkedlist.append(6);
+        expect(doublylinkedlist.reverseTraverse()).toBe('6,3,2,1,4,5');
+
+        expect(doublylinkedlist.delete(5)).toBeTruthy();
+        expect(doublylinkedlist.reverseTraverse()).toBe('6,3,2,1,4');
+        expect(doublylinkedlist.delete(2)).toBeTruthy();
+        doublylinkedlist.append(10);
+        expect(doublylinkedlist.reverseTraverse()).toBe('10,6,3,1,4');
+    })
 })
