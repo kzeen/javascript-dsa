@@ -32,6 +32,17 @@ class DoublyLinkedList {
         }
     }
 
+    contains(val) {
+        let currentNode = this.head;
+
+        while (currentNode !== null && currentNode.value !== val)
+            currentNode = currentNode.next;
+
+        if (currentNode === null)
+            return false;
+        return true;
+    }
+
     toArray() {
         const arr = [];
         let currentNode = this.head;
