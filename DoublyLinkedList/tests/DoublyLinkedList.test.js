@@ -28,4 +28,27 @@ describe("DoublyLinkedList tests", () => {
         doublylinkedlist.append(7);
         expect(doublylinkedlist.toString()).toBe('5,6,7');
     })
+
+    it("should prepend nodes to the beginning of the DoublyLinkedList", () => {
+        const doublylinkedlist = new DoublyLinkedList();
+
+        doublylinkedlist.prepend(5);
+        expect(doublylinkedlist.head).toEqual(doublylinkedlist.tail);
+        expect(doublylinkedlist.head.value).toBe(5);
+        expect(doublylinkedlist.head.next).toBeNull();        
+        expect(doublylinkedlist.head.prev).toBeNull();
+
+        doublylinkedlist.prepend(6);
+        expect(doublylinkedlist.head.value).toBe(6);
+        expect(doublylinkedlist.tail.value).toBe(5);
+        expect(doublylinkedlist.head.prev).toBeNull();
+        expect(doublylinkedlist.head.next).toEqual(doublylinkedlist.tail);
+        expect(doublylinkedlist.tail.next).toBeNull();
+        expect(doublylinkedlist.toString()).toBe('6,5');
+
+        doublylinkedlist.append(7);
+        doublylinkedlist.prepend(10);
+        doublylinkedlist.prepend(8);
+        expect(doublylinkedlist.toString()).toBe('8,10,6,5,7');
+    })
 })

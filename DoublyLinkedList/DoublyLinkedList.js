@@ -19,6 +19,19 @@ class DoublyLinkedList {
         }
     }
 
+    prepend(val) {
+        const newNode = new DoublyLinkedListNode(val);
+
+        if (this.head === null) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            newNode.next = this.head;
+            this.head.prev = newNode;
+            this.head = newNode;
+        }
+    }
+
     toArray() {
         const arr = [];
         let currentNode = this.head;
