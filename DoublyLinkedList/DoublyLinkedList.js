@@ -43,6 +43,46 @@ class DoublyLinkedList {
         return true;
     }
 
+    delete(val) {
+        // Empty DoublyLinkedList
+        if (this.head === null) {
+            return false;
+        }
+
+        // Deleting first element
+        if (this.head.value === val) {
+            if (this.head === this.tail) {
+                this.head = null;
+                this.tail = null;
+            } else {
+                this.head = this.head.next;
+                this.head.prev.next = null;
+                this.head.prev = null;
+            }
+            return true;
+        }
+
+        // Deleting middle or last element or none
+        let currentNode = this.head;
+
+        while (currentNode !== null && currentNode.value !== val) {
+            currentNode = currentNode.next;
+        }
+
+        if (currentNode === null) {
+            return false;
+        }
+
+        currentNode.prev.next = currentNode.next;
+        if (currentNode === this.tail) {
+            this.tail = currentNode.prev;
+        } else {
+            currentNode.next.prev = currentNode.prev;
+        }
+
+        return true;
+    }
+
     toArray() {
         const arr = [];
         let currentNode = this.head;

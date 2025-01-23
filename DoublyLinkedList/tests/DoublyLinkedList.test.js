@@ -67,4 +67,32 @@ describe("DoublyLinkedList tests", () => {
         doublylinkedlist.append(100);
         expect(doublylinkedlist.contains(100)).toBeTruthy();
     })
+
+    it("should delete nodes from the DoublyLinkedList", () => {
+        const doublylinkedlist = new DoublyLinkedList();
+
+        expect(doublylinkedlist.delete(123)).toBeFalsy();
+
+        doublylinkedlist.append(123);
+        doublylinkedlist.prepend(321);
+        doublylinkedlist.append(2);
+        expect(doublylinkedlist.toString()).toBe('321,123,2');
+        expect(doublylinkedlist.delete(123)).toBeTruthy();
+        expect(doublylinkedlist.toString()).toBe('321,2');
+
+        doublylinkedlist.append(10);
+        expect(doublylinkedlist.delete(321)).toBeTruthy();
+        expect(doublylinkedlist.head.value).toBe(2);
+        expect(doublylinkedlist.toString()).toBe('2,10');
+        expect(doublylinkedlist.delete(21)).toBeFalsy();
+
+        doublylinkedlist.append(10);
+        expect(doublylinkedlist.delete(10)).toBeTruthy();
+        expect(doublylinkedlist.toString()).toBe('2,10');
+        expect(doublylinkedlist.delete(10)).toBeTruthy();
+        expect(doublylinkedlist.tail.value).toBe(2);
+        expect(doublylinkedlist.toString()).toBe('2');
+        expect(doublylinkedlist.delete(2)).toBeTruthy();
+        expect(doublylinkedlist.head).toBeNull();
+    })
 })
