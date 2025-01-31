@@ -5,6 +5,10 @@ class Queue {
         this.queue = new LinkedList();
     }
 
+    enqueue(val) {
+        this.queue.append(val);
+    }
+
     toString() {
         return this.queue.toString();
     }
