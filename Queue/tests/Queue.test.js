@@ -30,13 +30,13 @@ describe("Queue Tests", () => {
         queue.enqueue(2);
         queue.enqueue(10);
         expect(queue.toString()).toBe("21,2,10");
-        expect(queue.dequeue()).toBe(21);
+        expect(queue.dequeue().value).toBe(21);
         expect(queue.toString()).toBe("2,10");
 
         queue.enqueue(200);
         queue.enqueue(101);
         expect(queue.toString()).toBe("2,10,200,101");
-        expect(queue.dequeue()).toBe(2);
+        expect(queue.dequeue().value).toBe(2);
         expect(queue.toString()).toBe("10,200,101");
 
         queue.dequeue();

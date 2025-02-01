@@ -15,9 +15,7 @@ class Queue {
 
     dequeue() {
         if (!this.isEmpty()) {
-            const head_value = this.queue.head.value;
-            this.queue.delete(head_value)
-            return head_value;
+            return this.queue.deleteHead();
         }
         return null;
     }
