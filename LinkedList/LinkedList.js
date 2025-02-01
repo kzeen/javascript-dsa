@@ -97,6 +97,27 @@ class LinkedList {
         }
     }
 
+    deleteTail() {
+        const deletedTail = this.tail;
+
+        if (this.head === this.tail) {
+            this.head = null;
+            this.tail = null;
+
+            return deletedTail;
+        }
+
+        let currentNode = this.head;
+
+        while (currentNode.next !== this.tail) {
+            currentNode = currentNode.next;
+        }
+
+        currentNode.next = null;
+        this.tail = currentNode;
+        return deletedTail;
+    }
+
     traverse() {
         const arr = [];
         let currentNode = this.head;

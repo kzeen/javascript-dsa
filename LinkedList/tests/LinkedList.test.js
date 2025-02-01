@@ -112,6 +112,28 @@ describe("LinkedList tests", () => {
       expect(linkedlist.toString()).toBe("");
     });
 
+    it("should delete tail node from LinkedList", () => {
+      const linkedlist = new LinkedList();
+
+      expect(linkedlist.deleteTail()).toBeNull();
+
+      linkedlist.append(123);
+      linkedlist.prepend(321);
+      linkedlist.append(2);
+      expect(linkedlist.toString()).toBe("321,123,2");
+      expect(linkedlist.deleteTail().value).toBe(2);
+      expect(linkedlist.toString()).toBe("321,123");
+
+      linkedlist.append(10);
+      expect(linkedlist.deleteTail().value).toBe(10);
+      expect(linkedlist.head.value).toBe(321);
+      expect(linkedlist.toString()).toBe("321,123");
+
+      linkedlist.deleteHead();
+      linkedlist.deleteHead();
+      expect(linkedlist.toString()).toBe("");
+    });
+
     it("should traverse the LinkedList in order", () => {
         const linkedlist = new LinkedList();
 
