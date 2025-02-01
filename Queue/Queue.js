@@ -5,12 +5,16 @@ class Queue {
         this.queue = new LinkedList();
     }
 
+    isEmpty() {
+        return this.queue.head === null;
+    }
+
     enqueue(val) {
         this.queue.append(val);
     }
 
     dequeue() {
-        if (this.queue.head !== null) {
+        if (!this.isEmpty()) {
             const head_value = this.queue.head.value;
             this.queue.delete(head_value)
             return head_value;
@@ -19,7 +23,7 @@ class Queue {
     }
 
     peek() {
-        if (this.queue.head !== null) 
+        if (!this.isEmpty()) 
             return this.queue.head.value;
         return null;
     }
