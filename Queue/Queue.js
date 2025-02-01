@@ -9,6 +9,15 @@ class Queue {
         this.queue.append(val);
     }
 
+    dequeue() {
+        if (this.queue.head !== null) {
+            const head_value = this.queue.head.value;
+            this.queue.delete(head_value)
+            return head_value;
+        }
+        return null;
+    }
+
     toString() {
         return this.queue.toString();
     }
