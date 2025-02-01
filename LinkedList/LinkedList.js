@@ -80,6 +80,23 @@ class LinkedList {
         }
     }
 
+    deleteHead() {
+        if (this.head === null)
+            return null;
+        else {
+            const deletedHead = this.head;
+
+            if (this.head === this.tail) {
+                this.head = null;
+                this.tail = null;
+            } else {
+                this.head = deletedHead.next;
+                deletedHead.next = null;
+            }
+            return deletedHead;
+        }
+    }
+
     traverse() {
         const arr = [];
         let currentNode = this.head;

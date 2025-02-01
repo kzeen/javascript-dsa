@@ -90,6 +90,28 @@ describe("LinkedList tests", () => {
         expect(linkedlist.head).toBeNull();
     })
 
+    it("should delete head node from LinkedList", () => {
+      const linkedlist = new LinkedList();
+
+      expect(linkedlist.deleteHead()).toBeNull();
+
+      linkedlist.append(123);
+      linkedlist.prepend(321);
+      linkedlist.append(2);
+      expect(linkedlist.toString()).toBe("321,123,2");
+      expect(linkedlist.deleteHead().value).toBe(321);
+      expect(linkedlist.toString()).toBe("123,2");
+
+      linkedlist.append(10);
+      expect(linkedlist.deleteHead().value).toBe(123);
+      expect(linkedlist.head.value).toBe(2);
+      expect(linkedlist.toString()).toBe("2,10");
+
+      linkedlist.deleteHead();
+      linkedlist.deleteHead();
+      expect(linkedlist.toString()).toBe("");
+    });
+
     it("should traverse the LinkedList in order", () => {
         const linkedlist = new LinkedList();
 
