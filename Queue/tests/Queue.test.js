@@ -44,4 +44,25 @@ describe("Queue Tests", () => {
         queue.dequeue();
         expect(queue.toString()).toBe("");
     })
+
+    it("should peek at the front of the queue", () => {
+        const queue = new Queue();
+
+        expect(queue.peek()).toBeNull();
+
+        queue.enqueue(21);
+        queue.enqueue(2);
+        queue.enqueue(10);
+        expect(queue.toString()).toBe("21,2,10");
+        expect(queue.peek()).toBe(21);
+
+        queue.dequeue();
+        expect(queue.peek()).toBe(2);
+        expect(queue.toString()).toBe("2,10");
+
+        queue.dequeue();
+        queue.dequeue();
+        expect(queue.peek()).toBeNull();
+        expect(queue.toString()).toBe("");
+    })
 })

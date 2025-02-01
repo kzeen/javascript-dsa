@@ -18,6 +18,12 @@ class Queue {
         return null;
     }
 
+    peek() {
+        if (this.queue.head !== null) 
+            return this.queue.head.value;
+        return null;
+    }
+
     toString() {
         return this.queue.toString();
     }
