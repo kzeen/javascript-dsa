@@ -5,6 +5,10 @@ class Stack {
         this.stack = new LinkedList();
     }
 
+    push(val) {
+        this.stack.prepend(val);
+    }
+
     toString() {
         return this.stack.toString();
     }
